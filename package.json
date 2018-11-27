@@ -1,0 +1,29 @@
+{
+  "name": "augievt_npm_lib",
+  "version": "1.0.3",
+  "description": "boiler",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "test",
+    "build": "./node_modules/.bin/babel src --out-dir lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/augustinevt/npm_lib_boiler.git"
+  },
+  "author": "augievt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/augustinevt/npm_lib_boiler/issues"
+  },
+  "homepage": "https://github.com/augustinevt/npm_lib_boiler#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.0.0"
+  }
+}
