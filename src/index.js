@@ -1,5 +1,5 @@
-import posPronounDecliner from './posPronounDecliner.js';
-
-export default {
-  posPronounDecliner
-};
+const fs = require('fs');
+const WATCH_TARGET = './node-desc.txt';
+fs.watch(WATCH_TARGET, (eventType, filename) => {
+   console.log('File "' + filename + '" was changed: ' + eventType);
+});
