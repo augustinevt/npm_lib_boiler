@@ -1,0 +1,45 @@
+name: name of the thing
+meta:
+  macro_question: lack of financial education income inequality
+  start_connect: foo
+  end_connect: fow
+  goals:
+    - mention this thing
+    - mention that thing
+  elements:
+    - existentialism
+    - pathos
+content:
+  sectionOne:
+    name: section One
+    intro:
+      Lack of financial education is making millenials poor. Why is this not working? Does anything else work? And That is that!
+
+    context:
+      Young people are never tought how to navigate the economic infrastructure setup, by no game of change, by the previous generation. Isn't that weird?
+
+    substantiation:
+      90% of assholes don't know what a 401 k is. As heathy miller says, only two millenials in the world are financially literate, and they are both trillionaires.
+
+    analysis:
+      Only the wealthier members of society are tought to leverage the framework we are all expected to function in. Therefore, it is no wonder that there is a sense of hopelessness.
+
+    conclusion:
+      Millenials need to redefine the system they wish to eschew. However, we are underserved by lack of interest and/or knowledge of the objective financial context we inhabit.
+
+  sectionTwo:
+    name: section One
+    intro:
+      therefore we must cahnge
+
+    context:
+      people are cool when they change
+
+    substantiation:
+      90% of people say that they like change!
+
+    analysis:
+      Isn't that fun?
+
+    conclusion:
+      so do it! Yay!

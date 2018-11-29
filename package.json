@@ -24,6 +24,7 @@
     "babel-plugin-transform-es2015-modules-simple-commonjs": "^0.3.0"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.0.0"
+    "@babel/polyfill": "^7.0.0",
+    "yamljs": "^0.3.0"
   }
 }
