@@ -1,7 +1,18 @@
 class Noun {
-  constructor(root, fall='nom') {
+  constructor({
+    root,
+    fall='nom',
+    plural='false',
+    pronoun='false',
+    conjugationKey='ich'
+  }) {
+    console.log(root, fall)
     this.root = root;
-    this. article = this.getArticle(root, fall);
+    this.fall = fall;
+    this.plural = plural;
+    this.pronoun = pronoun;
+    this.conjugationKey = conjugationKey;
+    this.article = this.getArticle(root, fall);
   }
 
   getArticle(root, fall) {
@@ -9,6 +20,8 @@ class Noun {
     let isGuess = false;
 
     article = root.match(/\w{3}\s/) && root.match(/\w{3}\s/)[0];
+    article = article.slice(0,3);
+
 
     if (!article) {
       article = this.guessArticle(root)
@@ -17,6 +30,7 @@ class Noun {
 
     article = this.declineArticle(article, fall);
 
+    this.root = this.root.slice(4);
     return article;
   }
 
@@ -39,6 +53,8 @@ class Noun {
         dat: 'der',
       }
     };
+
+    console.log(article, fall, standard[article])
 
     try {
       declinedArticle = standard[article][fall]
@@ -68,9 +84,10 @@ class Noun {
     }
   }
 
+  print() {
+    return `${this.article} ${this.root}`
+  }
+
 }
 
-const foo = new Noun('der hund');
-const bar = new Noun('universität');
-const baro = new Noun('mädchen', 'dat');
-const bark = new Noun('rebent');
+module.exports = Noun;
