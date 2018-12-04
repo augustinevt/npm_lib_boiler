@@ -1,1 +1,4 @@
-10
+
+
+ -------- 
+ TypeError: bank[cmd] is not a function

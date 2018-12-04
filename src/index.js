@@ -24,42 +24,46 @@ const bank = {
 function* generator(i) {
   yield i;
   yield i + 10;
-  return "food!"
+  return "food!";
 }
 
-fs.watchFile(WATCH_TARGET, (eventType, filename) => {
-  const jsonOutput = yml.load('./input.yml');
+const main = () => {
   let gen = null;
-  let textOutput;
 
-  const cmd = jsonOutput.cmd;
-  const opts = jsonOutput.opts;
+  fs.watchFile(WATCH_TARGET, (eventType, filename) => {
+    const jsonOutput = yml.load('./input.yml');
+    let textOutput;
 
-  if (cmd === 'gen') {
-    gen = generator(10);
-  }
+    const cmd = jsonOutput.cmd;
+    const opts = jsonOutput.opts;
 
-  console.log(gen)
 
-  try {
-    if (!!gen) {
-
-      // don't CALL NEXT!! HAHA
-      textOutput = gen.next()
-      if (gen.next.done) {
-        gen = null;
-      }
-
-    } else {
-      textOutput = bank[cmd](opts);
+    if (cmd === 'gen' && !gen) {
+      gen = generator(10);
+    } else if (cmd === 'abort gen') {
+      gen = null;
     }
 
-  } catch (e) {
-    textOutput =`\n\n -------- \n ${e}`
-  }
+    try {
+      if (!!gen) {
+        const next = gen.next()
+        textOutput = next.value;
+        if (next.done) {
+          gen = null;
+        }
+      } else {
+        textOutput = bank[cmd](opts);
+      }
 
-  fs.writeFile('./output.txt', textOutput, (err) => {
-    if (err) throw err;
-    console.log('text file saved!')
+    } catch (e) {
+      textOutput =`\n\n -------- \n ${e}`
+    }
+
+    fs.writeFile('./output.txt', textOutput, (err) => {
+      if (err) throw err;
+      console.log('text file saved!')
+    });
   });
-});
+}
+
+main();
